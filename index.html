@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Salik Imam | Advanced Orthopaedic Trauma & Joint Replacement</title>
+    <style>
+        /* Modern CSS Reset & Variables */
+        :root {
+            --primary-color: #1a365d;    /* Deep medical blue */
+            --secondary-color: #2b6cb0;  /* Bright accent blue */
+            --text-dark: #2d3748;        /* Charcoal text */
+            --text-light: #718096;       /* Soft grey text */
+            --bg-light: #f7fafc;         /* Light background tint */
+            --white: #ffffff;
+            --accent: #dd6b20;           /* Soft call to action orange */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Global Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #e2e8f0 0%, #edf2f7 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 2.75rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Global Section Layout */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* Grid Layout for Features */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        /* About Section Custom Elements */
+        .credentials-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .credentials-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        /* Callout Blockquote style */
+        .callout-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        /* Simple 2x2 Grid for "Why Choose" */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Contact/Booking Section */
+        .booking-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            margin: 4rem auto;
+        }
+
+        .booking-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-white:hover {
+            background-color: var(--bg-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a202c;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            section { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">drsalikimam.com</a>
+            <a href="#book-consultation" class="btn btn-primary">Book an Appointment</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1>Dr. Salik Imam</h1>
+            <div class="hero-subtitle">Restoring Mobility, Enhancing Life</div>
+            <p class="hero-description">Your trusted expert in advanced orthopaedic trauma and joint replacement, dedicated to restoring your mobility and improving your quality of life with over a decade of experience.</p>
+            <div class="hero-buttons">
+                <a href="#book-consultation" class="btn btn-primary">Book an Appointment</a>
+                <a href="#specialisations" class="btn btn-outline">Our Specialisations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="grid-2">
+            <div>
+                <h2 class="section-title">About Dr. Salik Imam & Our Philosophy</h2>
+                <ul class="credentials-list">
+                    <li>DNB (Orthopaedics)</li>
+                    <li>MRCS EDINBURGH (UK)</li>
+                    <li>Fellowship in ROBOTIC KNEE ARTHROPLASTY</li>
+                    <li>D ORTHO, MBBS Patna Univ.</li>
+                </ul>
+            </div>
+            <div>
+                <div class="card">
+                    <h3>Our Patient-Centric Philosophy</h3>
+                    <p>Dr. Salik Imam's practice is built on a foundation of patient-centric care, integrating advanced medical techniques with compassionate support. We focus on evidence-based treatments to ensure optimal, long-term outcomes for every individual, prioritising your well-being and recovery journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trauma & Fracture Care -->
+    <section id="specialisations" style="background-color: var(--white); max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Orthopaedic Trauma & Fracture Care</h2>
+            <div class="grid-3">
+                <div class="card" style="background-color: var(--bg-light);">
+                    <h3>Complex Trauma Management</h3>
+                    <p>Specialising in intricate fractures, polytrauma, and critical limb salvage procedures, including Road Traffic Accident (RTA) injuries, sports injuries, and industrial trauma. Our expertise ensures comprehensive care for even the most severe orthopaedic challenges.</p>
+                </div>
+                <div class="card" style="background-color: var(--bg-light);">
+                    <h3>Advanced Techniques</h3>
+                    <p>Utilising cutting-edge methods such as Ilizarov fixation and minimally invasive plating, we promote rapid recovery. Our protocols lead to an impressive &gt;95% successful fracture union rate, getting you back on your feet faster.</p>
+                </div>
+                <div class="card" style="background-color: var(--bg-light);">
+                    <h3>24/7 Emergency Support</h3>
+                    <p>We understand that injuries can happen at any time. Our team provides round-the-clock emergency support for acute orthopaedic injuries, ensuring immediate and expert care when you need it most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Joint Replacement Solutions -->
+    <section id="joint-replacement">
+        <h2 class="section-title">Advanced Joint Replacement Solutions</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Comprehensive Joint Services</h3>
+                <p>Offering a full spectrum of joint replacement procedures, including Total Knee Replacement (TKR), Total Hip Replacement (THR), and Shoulder Replacement. We specialise in primary, revision, and partial joint replacements.</p>
+            </div>
+            <div class="card">
+                <h3>Robotic-Assisted Precision</h3>
+                <p>Employing state-of-the-art robotic-assisted surgery systems, such as CUVIS, MAKO, and NAVIO, for unparalleled precision and alignment. This advanced technology enhances surgical accuracy, leading to superior outcomes.</p>
+            </div>
+            <div class="card">
+                <h3>Durable Outcomes</h3>
+                <p>Customised implant selection is crucial for durable results, with typical implant lifespans extending to 15-20 years. We achieve over 98% patient satisfaction, ensuring significant pain relief and vastly improved joint function.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities & Tech -->
+    <section id="facilities" style="background-color: var(--white); max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Our State-of-the-Art Facilities & Technology</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Advanced Surgical Environment</h3>
+                    <p>Dr. Salik Imam is proudly affiliated with <strong>JAYPRABHA MEDANTA HOSPITAL</strong> as Consultant in Patna. Our facilities boast laminar flow Operation Theatres, ensuring a sterile environment, and advanced imaging suites for precise diagnostics and planning.</p>
+                </div>
+                <div>
+                    <h3>Technology & Recovery</h3>
+                    <p>We utilise 3D pre-operative planning for meticulous surgical execution, enhancing precision. Our dedicated post-operative rehabilitation wing, staffed by skilled physiotherapists, focuses on fast-track recovery protocols, enabling discharge in just 3-5 days for most joint replacement patients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose -->
+    <section id="why-choose">
+        <h2 class="section-title">Why Choose Dr. Salik Imam?</h2>
+        <div class="grid-4">
+            <div class="card">
+                <h3>Exceptional Patient Satisfaction</h3>
+                <p>We consistently achieve high patient satisfaction rates, averaging 4.9/5 stars across various review platforms, reflecting our commitment to excellent care and positive outcomes.</p>
+            </div>
+            <div class="card">
+                <h3>Integrated Care Approach</h3>
+                <p>Our focus is on early mobilisation and comprehensive post-operative care, ensuring a smooth and effective recovery journey for every patient, tailored to their individual needs.</p>
+            </div>
+            <div class="card">
+                <h3>Transparent Communication</h3>
+                <p>We believe in clear and open dialogue regarding your diagnosis, prognosis, and recovery plan. You will always be fully informed and confident in your treatment choices.</p>
+            </div>
+            <div class="card">
+                <h3>Cashless Facilities</h3>
+                <p>For your convenience, we are networked with major Indian health insurance providers, offering seamless cashless facilities for eligible treatments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources & FAQs Preview -->
+    <section id="resources" style="background-color: var(--white); max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Patient Resources & FAQs</h2>
+            <div class="grid-4">
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Common Queries Answered</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Find answers to frequently asked questions like "What is the recovery time for TKR?".</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Pre & Post-Operative Guides</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Access pre-operative checklists and detailed post-operative care guides.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Orthopaedic Conditions</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Gain valuable insights into common conditions such as osteoarthritis and osteoporosis.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Prevention & Bone Health</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Explore educational content focused on injury prevention strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Section -->
+    <section id="book-consultation" style="padding-top: 2rem; padding-bottom: 2rem;">
+        <div class="booking-section">
+            <h2>Book Your Consultation</h2>
+            <p>Get in touch today to schedule your evaluation with Dr. Salik Imam.</p>
+            <div class="booking-buttons">
+                <a href="tel:+917004622570" class="btn btn-white">Call Us: +91 7004622570</a>
+                <a href="#" class="btn btn-outline" style="color: white; border-color: white;">Book Online Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 drsalikimam.com. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
